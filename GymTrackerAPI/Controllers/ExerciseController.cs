@@ -32,7 +32,6 @@ namespace GymTrackerAPI.Controllers
             await _context.SaveChangesAsync();
             return Ok(await _context.Exercises.ToListAsync());
         }
-
         [HttpPut]
         public async Task<ActionResult<List<Exercise>>> UpdateExercise(Exercise exercise) 
         {
@@ -40,7 +39,6 @@ namespace GymTrackerAPI.Controllers
             if (dbExercise == null)
             {
                 return BadRequest("Not Found");
-
             }
             dbExercise.Name = exercise.Name;
             dbExercise.BodyPart = exercise.BodyPart;
@@ -51,7 +49,6 @@ namespace GymTrackerAPI.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(await _context.Exercises.ToListAsync());
-        
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Exercise>>> DeleteExercise(int id)
@@ -61,13 +58,11 @@ namespace GymTrackerAPI.Controllers
             if (dbExercise == null)
             {
                 return BadRequest("Not Found");
-
             }
             _context.Exercises.Remove(dbExercise);
             await _context.SaveChangesAsync();
 
             return Ok(await _context.Exercises.ToListAsync());
-
         }
 
 
