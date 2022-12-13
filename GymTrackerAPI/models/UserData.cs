@@ -7,6 +7,6 @@
         public float Height { get; set; }
         public float Weight { get; set; }
         public float TargetWeight { get; set; }
-
+        public DateTime date { get; set; }
     }
 }
